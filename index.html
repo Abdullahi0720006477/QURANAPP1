@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quran Explorer - Advanced Edition Selection</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-book-quran"></i>
+            <h1>Quran Explorer</h1>
+        </div>
+        <div class="header-controls">
+            <button class="header-btn" id="audio-player-btn">
+                <i class="fas fa-music"></i>
+                <span>Audio Player</span>
+            </button>
+            <button class="header-btn" id="settings-btn">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="dashboard">
+            <div class="edition-panel">
+                <div class="panel-title">
+                    <i class="fas fa-sliders-h"></i>
+                    <h3>Edition Selection</h3>
+                </div>
+                
+                <div class="filters-section">
+                    <div class="filter-group">
+                        <label class="filter-label">Language</label>
+                        <select class="filter-select" id="language-select">
+                            <option value="">All Languages</option>
+                            <!-- Languages populated dynamically -->
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Edition Type</label>
+                        <select class="filter-select" id="type-select">
+                            <option value="">All Types</option>
+                            <!-- Types populated dynamically -->
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Format</label>
+                        <select class="filter-select" id="format-select">
+                            <option value="">All Formats</option>
+                            <option value="text">Text</option>
+                            <option value="audio">Audio</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="panel-title" style="margin-top: 30px;">
+                    <i class="fas fa-list"></i>
+                    <h3>Available Editions</h3>
+                </div>
+                
+                <div class="edition-list" id="edition-list">
+                    <!-- Edition list populated dynamically -->
+                </div>
+                
+                <div class="current-edition">
+                    <h4>Selected Translation</h4>
+                    <div class="edition-info" id="current-edition-info">
+                        Quran Uthmani (Arabic)
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <div class="search-section">
+                    <div class="search-header">
+                        <h2>Discover the Holy Quran</h2>
+                        <p>Search and explore the divine revelations</p>
+                    </div>
+                    
+                    <div class="search-box">
+                        <input type="text" id="search-input" placeholder="Search Surah or Keyword...">
+                        <button id="search-btn">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                    </div>
+                    
+                    <div class="filters">
+                        <button class="filter-btn active" data-filter="all">
+                            <i class="fas fa-book"></i> All Surahs
+                        </button>
+                        <button class="filter-btn" data-filter="meccan">
+                            <i class="fas fa-mosque"></i> Meccan
+                        </button>
+                        <button class="filter-btn" data-filter="medinan">
+                            <i class="fas fa-kaaba"></i> Medinan
+                        </button>
+                        <button class="filter-btn" data-filter="juz">
+                            <i class="fas fa-bookmark"></i> By Juz
+                        </button>
+                    </div>
+                </div>
+
+                <div class="surahs-grid" id="surahs-container">
+                    <!-- Loading state -->
+                    <div class="loading">
+                        <i class="fas fa-spinner"></i>
+                        <p>Loading Surahs...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Verse Modal -->
+    <div class="verse-modal" id="verse-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal">&times;</button>
+            <div class="verse-content" id="verse-text"></div>
+            <div class="verse-translation" id="verse-translation"></div>
+            <div class="verse-info" id="verse-info"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Created with ❤️ | Quran Explorer 2023 | Using Al-Quran Cloud API</p>
+    </footer>
+
+    <!-- Audio Player (dynamically created) -->
+    <div id="audio-player-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
